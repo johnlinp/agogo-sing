@@ -1,0 +1,26 @@
+{
+  "name": "agogo-sing",
+  "version": "0.0.1",
+  "description": "Find Agogo sining here",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/johnlinp/agogo-sing.git"
+  },
+  "keywords": [
+    "Agogo"
+  ],
+  "author": "johnlinp",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/johnlinp/agogo-sing/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0",
+    "mongoose": "~4.5.7",
+    "pug": "~2.0.0-beta4"
+  }
+}
