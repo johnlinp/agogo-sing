@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.info-group {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .question-group {
     max-width: 600px;
     margin: 0 auto;

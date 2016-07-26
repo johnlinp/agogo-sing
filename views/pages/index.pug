@@ -1,6 +1,6 @@
 html
   head
-    title Agogo Sing
+    title John & Maggie
     meta(
       name="viewport"
       content="width=device-width, initial-scale=1"
@@ -16,7 +16,18 @@ html
   body
     div.container
       div.page-header
-        h1.center Agogo Sing
+        h1.center John & Maggie
+        p.center We are getting married. Let's have fun together.
+      div.info-group
+        div.info-item
+          label Date
+          span  2016/09/09
+        div.info-item
+          label Time
+          span  Opens at 18:30 / Starts at 19:30
+        div.info-item
+          label Address
+          div No.201, Sec. 2, Dunhua S. Rd., Da’an Dist., Taipei City 106, Taiwan
       div.question-group
         form.form-group(action='/api/submit', method='post')
           div.question-item
@@ -50,4 +61,4 @@ html
             label Say Something
             input.form-control(type='text', name='saySomething')
           div.question-item
-            input.form-control(type='submit')
+            input.form-control(type='submit', value='Done!')
