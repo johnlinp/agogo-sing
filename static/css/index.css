@@ -1,0 +1,12 @@
+.title {
+    text-align: center;
+}
+
+.question-group {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.question-item {
+    margin-top: 40px;
+}

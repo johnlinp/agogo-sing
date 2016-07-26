@@ -1,5 +1,48 @@
 html
   head
-    title='Agogo Sing'
+    title Agogo Sing
+    link(
+      rel='stylesheet'
+      href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+    )
+    link(
+      rel='stylesheet'
+      href='/css/index.css',
+    )
   body
-    h1='Agogo Sing'
+    div.container
+      h1.title Agogo Sing
+      div.question-group
+        form.form-group(action='/api/submit', method='post')
+          div.question-item
+            label Your Real Name
+            input.form-control(type='text', name='realName')
+          div.question-item
+            label Participate Method
+            input.form-control(type='text', name='participateMethod')
+          div.question-item
+            label Need Paper Invitation?
+            input.form-control(type='text', name='needPaperInvitation')
+          div.question-item
+            label Invitation Address
+            input.form-control(type='text', name='invitationAddr')
+          div.question-item
+            label Relation with Us
+            input.form-control(type='text', name='relationWithUs')
+          div.question-item
+            label Number of People
+            input.form-control(type='text', name='numPeople')
+          div.question-item
+            label Phone Number
+            input.form-control(type='text', name='phone')
+          div.question-item
+            label Number of Vegans
+            input.form-control(type='text', name='numVegan')
+          div.question-item
+            label Number of Children
+            input.form-control(type='text', name='numChildren')
+          div.question-item
+            label Say Something
+            input.form-control(type='text', name='saySomething')
+          div.question-item
+            input.form-control(type='submit')
