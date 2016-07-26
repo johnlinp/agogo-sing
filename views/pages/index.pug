@@ -35,30 +35,59 @@ html
             input.form-control(type='text', name='realName')
           div.question-item
             label Participate Method
-            input.form-control(type='text', name='participateMethod')
+            div.radio
+              label
+                input(type='radio', name='participateMethod', value='attend')
+                span Attend
+            div.radio
+              label
+                input(type='radio', name='participateMethod', value='money')
+                span Invitation Only
+            div.radio
+              label
+                input(type='radio', name='participateMethod', value='wish')
+                span Best Wishes
           div.question-item
             label Need Paper Invitation?
-            input.form-control(type='text', name='needPaperInvitation')
+            div.radio
+              label
+                input(type='radio', name='needPaperInvitation', value='true')
+                span Yes
+            div.radio
+              label
+                input(type='radio', name='needPaperInvitation', value='false')
+                span No
           div.question-item
             label Invitation Address
             input.form-control(type='text', name='invitationAddr')
           div.question-item
             label Relation with Us
-            input.form-control(type='text', name='relationWithUs')
+            div.radio
+              label
+                input(type='radio', name='relationWithUs', value='john')
+                span John's friend
+            div.radio
+              label
+                input(type='radio', name='relationWithUs', value='margaret')
+                span Margaret's friend
+            div.radio
+              label
+                input(type='radio', name='relationWithUs', value='both')
+                span Both
           div.question-item
             label Number of People
-            input.form-control(type='text', name='numPeople')
+            input.form-control(type='number', name='numPeople')
           div.question-item
             label Phone Number
-            input.form-control(type='text', name='phone')
+            input.form-control(type='tel', name='phone')
           div.question-item
             label Number of Vegans
-            input.form-control(type='text', name='numVegan')
+            input.form-control(type='number', name='numVegan')
           div.question-item
             label Number of Children
-            input.form-control(type='text', name='numChildren')
+            input.form-control(type='number', name='numChildren')
           div.question-item
             label Say Something
-            input.form-control(type='text', name='saySomething')
+            textarea.form-control(name='saySomething')
           div.question-item
             input.form-control(type='submit', value='Done!')
