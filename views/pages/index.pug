@@ -1,6 +1,6 @@
 html
   head
-    title John & Margaret
+    title=__('john-and-margaret')
     meta(
       name="viewport"
       content="width=device-width, initial-scale=1"
@@ -16,78 +16,64 @@ html
   body
     div.container
       div.page-header
-        h1.center John & Margaret
-        p.center We are getting married. Let's have fun together.
+        h1.center=__('john-and-margaret')
+        p.center=__('wedding-ceremony')
       div.info-group
         div.info-item
-          label Date
-          span  2016/09/09
+          label=__('date-label')
+          span=__('date-value')
         div.info-item
-          label Time
-          span  Opens at 18:30 / Starts at 19:30
+          label=__('time-label')
+          span=__('time-value')
         div.info-item
-          label Address
-          div No.201, Sec. 2, Dunhua S. Rd., Da’an Dist., Taipei City 106, Taiwan
+          label=__('venue-label')
+          span=__('venue-value')
+        div.info-item
+          label=__('address-label')
+          span=__('address-value')
       div.question-group
         form.form-group(action='/api/submit', method='post')
           div.question-item
-            label Your Real Name
+            label=__('real-name-label')
             input.form-control(type='text', name='realName')
           div.question-item
-            label Participate Method
+            label=__('participate-label')
             div.radio
               label
                 input(type='radio', name='participateMethod', value='attend')
-                span Attend
+                span=__('attend')
             div.radio
               label
                 input(type='radio', name='participateMethod', value='money')
-                span Invitation Only
-            div.radio
-              label
-                input(type='radio', name='participateMethod', value='wish')
-                span Best Wishes
+                span=__('cannot-attend')
           div.question-item
-            label Need Paper Invitation?
+            label=__('invitation-label')
             div.radio
               label
                 input(type='radio', name='needPaperInvitation', value='true')
-                span Yes
+                span=__('postal')
             div.radio
               label
                 input(type='radio', name='needPaperInvitation', value='false')
-                span No
+                span=__('email')
           div.question-item
-            label Invitation Address
+            label=__('mailing-address-label')
             input.form-control(type='text', name='invitationAddr')
           div.question-item
-            label Relation with Us
-            div.radio
-              label
-                input(type='radio', name='relationWithUs', value='john')
-                span John's friend
-            div.radio
-              label
-                input(type='radio', name='relationWithUs', value='margaret')
-                span Margaret's friend
-            div.radio
-              label
-                input(type='radio', name='relationWithUs', value='both')
-                span Both
-          div.question-item
-            label Number of People
-            input.form-control(type='number', name='numPeople')
-          div.question-item
-            label Phone Number
+            label=__('phone-number-label')
             input.form-control(type='tel', name='phone')
           div.question-item
-            label Number of Vegans
-            input.form-control(type='number', name='numVegan')
+            label=__('vegan-label')
+            div.radio
+              label
+                input(type='radio', name='participateMethod', value='attend')
+                span=__('yes')
+            div.radio
+              label
+                input(type='radio', name='participateMethod', value='money')
+                span=__('no')
           div.question-item
-            label Number of Children
-            input.form-control(type='number', name='numChildren')
-          div.question-item
-            label Say Something
+            label=__('say-something-label')
             textarea.form-control(name='saySomething')
           div.question-item
-            input.form-control(type='submit', value='Done!')
+            input.form-control(type='submit', value=__('done'))
