@@ -35,9 +35,11 @@ html
         form.form-group(action='/api/submit', method='post', id='questions')
           div.question-item
             label=__('real-name-label')
+            span.required  *
             input.form-control(type='text', name='realName', id='real-name-input')
           div.question-item
             label=__('participate-label')
+            span.required  *
             div.radio
               label
                 input(type='radio', name='canAttend', value='yes', checked='true')
@@ -48,6 +50,7 @@ html
                 span=__('cannot-attend')
           div.question-item
             label=__('invitation-label')
+            span.required  *
             div.radio
               label
                 input(type='radio', name='invitationMethod', value='email', checked='true')
@@ -58,12 +61,15 @@ html
                 span=__('postal')
           div.question-item
             label(id='address-label', data-postal=__('postal-address-label'), data-email=__('email-address-label'))=__('email-address-label')
+            span.required  *
             input.form-control(type='email', name='invitationAddr', id='address-input')
           div.question-item
             label=__('phone-number-label')
+            span.required  *
             input.form-control(type='tel', name='phone', id='phone-input')
           div.question-item
             label=__('vegan-label')
+            span.required  *
             div.radio
               label
                 input(type='radio', name='isVegan', value='false', checked='true')

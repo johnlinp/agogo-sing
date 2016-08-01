@@ -16,6 +16,10 @@
     margin-top: 40px;
 }
 
+.required {
+    color: red;
+}
+
 .warn {
     color: red;
 }
