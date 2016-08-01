@@ -40,11 +40,11 @@ html
             label=__('participate-label')
             div.radio
               label
-                input(type='radio', name='participateMethod', value='attend')
+                input(type='radio', name='canAttend', value='yes', checked='true')
                 span=__('attend')
             div.radio
               label
-                input(type='radio', name='participateMethod', value='money')
+                input(type='radio', name='canAttend', value='no')
                 span=__('cannot-attend')
           div.question-item
             label=__('invitation-label')
@@ -66,12 +66,12 @@ html
             label=__('vegan-label')
             div.radio
               label
-                input(type='radio', name='participateMethod', value='attend')
-                span=__('yes')
+                input(type='radio', name='isVegan', value='false', checked='true')
+                span=__('no')
             div.radio
               label
-                input(type='radio', name='participateMethod', value='money')
-                span=__('no')
+                input(type='radio', name='isVegan', value='true')
+                span=__('yes')
           div.question-item
             label=__('say-something-label')
             textarea.form-control(name='saySomething')
