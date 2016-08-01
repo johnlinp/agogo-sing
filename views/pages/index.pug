@@ -32,10 +32,10 @@ html
           label=__('address-label')
           span=__('address-value')
       div.question-group
-        form.form-group(action='/api/submit', method='post')
+        form.form-group(action='/api/submit', method='post', id='questions')
           div.question-item
             label=__('real-name-label')
-            input.form-control(type='text', name='realName')
+            input.form-control(type='text', name='realName', id='real-name-input')
           div.question-item
             label=__('participate-label')
             div.radio
@@ -61,7 +61,7 @@ html
             input.form-control(type='email', name='invitationAddr', id='address-input')
           div.question-item
             label=__('phone-number-label')
-            input.form-control(type='tel', name='phone')
+            input.form-control(type='tel', name='phone', id='phone-input')
           div.question-item
             label=__('vegan-label')
             div.radio
@@ -77,4 +77,6 @@ html
             textarea.form-control(name='saySomething')
           div.question-item
             input.form-control(type='submit', value=__('done'))
+          div.warn.center(data-blank-warn-msg=__('blank-warn'), id='warn')
+          div.footer
     script(src='/js/index.js')

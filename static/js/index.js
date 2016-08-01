@@ -36,5 +36,35 @@
         updateLabel();
     };
 
+    var listenSubmit = function() {
+        var getBlankField = function() {
+            var fields = [
+                document.getElementById('real-name-input'),
+                document.getElementById('address-input'),
+                document.getElementById('phone-input'),
+            ];
+
+            for (var i = 0; i < fields.length; ++i) {
+                var field = fields[i];
+                if (field.value.trim() == '') {
+                    return field.name;
+                }
+            }
+        };
+
+        var questions = document.getElementById('questions');
+        var warn = document.getElementById('warn');
+
+        questions.addEventListener('submit', function(evt) {
+            var blankField = getBlankField();
+
+            if (blankField) {
+                warn.innerHTML = warn.getAttribute('data-blank-warn-msg');
+                evt.preventDefault();
+            }
+        });
+    };
+
     listenMailMethod();
+    listenSubmit();
 })();
