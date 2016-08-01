@@ -1,17 +1,17 @@
 (function() {
-    var iterateRadios = function(radios, func) {
-        for (var i = 0; i < radios.length; ++i) {
-            var result = func(radios[i]);
-            if (result) {
-                return result;
-            }
-        }
-    };
-
     var listenMailMethod = function() {
         var methodRadios = document.getElementsByName('invitationMethod');
         var addrLabel = document.getElementById('address-label');
         var addrInput = document.getElementById('address-input');
+
+        var iterateRadios = function(radios, func) {
+            for (var i = 0; i < radios.length; ++i) {
+                var result = func(radios[i]);
+                if (result) {
+                    return result;
+                }
+            }
+        };
 
         var updateLabel = function() {
             var mailMethod = iterateRadios(methodRadios, function(radio) {
