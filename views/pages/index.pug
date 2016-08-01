@@ -50,15 +50,15 @@ html
             label=__('invitation-label')
             div.radio
               label
-                input(type='radio', name='needPaperInvitation', value='true')
-                span=__('postal')
+                input(type='radio', name='invitationMethod', value='email', checked='true')
+                span=__('email')
             div.radio
               label
-                input(type='radio', name='needPaperInvitation', value='false')
-                span=__('email')
+                input(type='radio', name='invitationMethod', value='postal')
+                span=__('postal')
           div.question-item
-            label=__('mailing-address-label')
-            input.form-control(type='text', name='invitationAddr')
+            label(id='address-label', data-postal=__('postal-address-label'), data-email=__('email-address-label'))=__('email-address-label')
+            input.form-control(type='email', name='invitationAddr', id='address-input')
           div.question-item
             label=__('phone-number-label')
             input.form-control(type='tel', name='phone')
@@ -77,3 +77,4 @@ html
             textarea.form-control(name='saySomething')
           div.question-item
             input.form-control(type='submit', value=__('done'))
+    script(src='/js/index.js')
