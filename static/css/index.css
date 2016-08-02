@@ -27,3 +27,35 @@
 .footer {
     height: 50px;
 }
+
+.background {
+    position: relative;
+}
+
+.pig {
+    position: absolute;
+}
+
+#pig-1 {
+    height: 40px;
+    width: 60px;
+    background: blue;
+}
+
+#pig-2 {
+    height: 70px;
+    width: 70px;
+    background: magenta;
+}
+
+#pig-3 {
+    height: 60px;
+    width: 40px;
+    background: green;
+}
+
+#pig-4 {
+    height: 30px;
+    width: 70px;
+    background: yellow;
+}

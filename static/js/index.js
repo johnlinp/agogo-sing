@@ -65,6 +65,30 @@
         });
     };
 
+    var listenPageResize = function() {
+        var placePig = function(pigId, platformId, xOffset) {
+            var platform = document.getElementById(platformId);
+            var pig = document.getElementById(pigId);
+
+            var platformBox = platform.getBoundingClientRect();
+            var pigBox = pig.getBoundingClientRect();
+
+            pig.style.top = platformBox.top - pigBox.height + window.pageYOffset;
+            pig.style.left = platformBox.right - pigBox.width - xOffset + window.pageXOffset;
+        };
+
+        var updatePigs = function() {
+            placePig('pig-1', 'real-name-input', 20);
+            placePig('pig-2', 'address-input', 30);
+            placePig('pig-3', 'address-input', 130);
+            placePig('pig-4', 'say-something-input', 50);
+        };
+
+        window.addEventListener('resize', updatePigs);
+        updatePigs();
+    };
+
     listenMailMethod();
     listenSubmit();
+    listenPageResize();
 })();
