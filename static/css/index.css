@@ -47,7 +47,6 @@
 #pig-2 {
     height: 38px;
     width: 52px;
-    background: magenta;
     animation: pig-waiting-2-keyframes .2s steps(3) infinite alternate;
     background: url(../images/pig-waiting-2.svg) no-repeat;
 }
@@ -55,7 +54,6 @@
 #pig-3 {
     height: 46px;
     width: 64px;
-    background: green;
     animation: pig-waiting-3-keyframes .2s steps(3) infinite alternate;
     background: url(../images/pig-waiting-3.svg) no-repeat;
 }
@@ -63,7 +61,6 @@
 #pig-4 {
     height: 68px;
     width: 96px;
-    background: yellow;
     animation: pig-waiting-4-keyframes .2s steps(3) infinite alternate;
     background: url(../images/pig-waiting-4.svg) no-repeat;
 }
