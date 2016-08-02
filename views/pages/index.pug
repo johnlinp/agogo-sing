@@ -37,11 +37,11 @@ html
           label=__('address-label')
           span=__('address-value')
       div.question-group
-        form.form-group(action='/api/submit', method='post', id='questions')
+        form.form-group#questions(action='/api/submit', method='post')
           div.question-item
             label=__('real-name-label')
             span.required  *
-            input.form-control(type='text', name='realName', id='real-name-input')
+            input.form-control#real-name-input(type='text', name='realName')
           div.question-item
             label=__('participate-label')
             span.required  *
@@ -65,13 +65,13 @@ html
                 input(type='radio', name='invitationMethod', value='postal')
                 span=__('postal')
           div.question-item
-            label(id='address-label', data-postal=__('postal-address-label'), data-email=__('email-address-label'))=__('email-address-label')
+            label#address-label(data-postal=__('postal-address-label'), data-email=__('email-address-label'))=__('email-address-label')
             span.required  *
-            input.form-control(type='email', name='invitationAddr', id='address-input')
+            input.form-control#address-input(type='email', name='invitationAddr')
           div.question-item
             label=__('phone-number-label')
             span.required  *
-            input.form-control(type='tel', name='phone', id='phone-input')
+            input.form-control#phone-input(type='tel', name='phone')
           div.question-item
             label=__('vegan-label')
             span.required  *
@@ -88,6 +88,6 @@ html
             textarea.form-control#say-something-input(name='saySomething')
           div.question-item
             input.form-control(type='submit', value=__('done'))
-          div.warn.center(data-blank-warn-msg=__('blank-warn'), id='warn')
+          div.warn.center#warn(data-blank-warn-msg=__('blank-warn'))
           div.footer
     script(src='/js/index.js')
