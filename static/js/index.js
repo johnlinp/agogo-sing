@@ -105,8 +105,8 @@
             placePig('pig-4', 'say-something-input', 50);
 
             placeDialog('pig-1', 'left', 'down');
-            placeDialog('pig-2', 'left', 'down');
-            placeDialog('pig-3', 'right', 'up');
+            placeDialog('pig-2', 'left', 'up');
+            placeDialog('pig-3', 'right', 'down');
             placeDialog('pig-4', 'left', 'up');
         };
 
