@@ -77,18 +77,80 @@
             pig.style.left = platformBox.right - pigBox.width - xOffset + window.pageXOffset;
         };
 
+        var removeAllDialogs = function() {
+            var pigs = document.getElementsByClassName('pig');
+            var dialogs = document.getElementsByClassName('dialog');
+
+            for (var i = 0; i < pigs.length; ++i) {
+                var pig = pigs[i];
+                pig.setAttribute('data-dialog', 'off');
+            }
+
+            for (var i = 0; i < dialogs.length; ++i) {
+                var dialog = dialogs[i];
+                dialog.parentNode.removeChild(dialog);
+            }
+        };
+
         var updatePigs = function() {
             placePig('pig-1', 'real-name-input', 20);
             placePig('pig-2', 'address-input', 30);
             placePig('pig-3', 'address-input', 130);
             placePig('pig-4', 'say-something-input', 50);
+            removeAllDialogs();
         };
 
         window.addEventListener('resize', updatePigs);
         updatePigs();
     };
 
+    var listenPigsClick = function() {
+        var makeDialogId = function(pig) {
+            return 'dialog-' + pig.getAttribute('id');
+        };
+
+        var addDialog = function(pig) {
+            var graphics = document.getElementById('graphics');
+            var dialog = document.createElement('div');
+
+            dialog.setAttribute('id', makeDialogId(pig));
+            dialog.classList.add('dialog');
+
+            graphics.appendChild(dialog);
+
+            var pigBox = pig.getBoundingClientRect();
+            var dialogBox = dialog.getBoundingClientRect();
+
+            dialog.style.top = pigBox.top - dialogBox.height;
+            dialog.style.left = pigBox.left - dialogBox.width;
+        };
+
+        var removeDialog = function(pig) {
+            var dialog = document.getElementById(makeDialogId(pig));
+            dialog.parentNode.removeChild(dialog);
+        };
+
+        var listenPig = function(pigId) {
+            var pig = document.getElementById(pigId);
+            pig.addEventListener('click', function() {
+                if (pig.getAttribute('data-dialog') == 'off') {
+                    pig.setAttribute('data-dialog', 'on');
+                    addDialog(pig);
+                } else if (pig.getAttribute('data-dialog') == 'on') {
+                    pig.setAttribute('data-dialog', 'off');
+                    removeDialog(pig);
+                }
+            });
+        }
+
+        listenPig('pig-1');
+        listenPig('pig-2');
+        listenPig('pig-3');
+        listenPig('pig-4');
+    };
+
     listenMailMethod();
     listenSubmit();
     listenPageResize();
+    listenPigsClick();
 })();

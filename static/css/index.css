@@ -28,7 +28,7 @@
     height: 50px;
 }
 
-.background {
+.graphics {
     position: relative;
 }
 
@@ -63,6 +63,13 @@
     width: 96px;
     animation: pig-waiting-4-keyframes .2s steps(3) infinite alternate;
     background: url(../images/pig-waiting-4.svg) no-repeat;
+}
+
+.dialog {
+    position: absolute;
+    height: 70px;
+    width: 130px;
+    background: blue;
 }
 
 @keyframes pig-waiting-1-keyframes {
