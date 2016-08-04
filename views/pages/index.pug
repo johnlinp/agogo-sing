@@ -15,10 +15,26 @@ html
     )
   body
     div#graphics
-      div.pig#pig-1
-      div.pig#pig-2
-      div.pig#pig-3
-      div.pig#pig-4
+      div.pig#pig-1(data-dialog-id='dialog-1')
+      div.pig#pig-2(data-dialog-id='dialog-2')
+      div.pig#pig-3(data-dialog-id='dialog-3')
+      div.pig#pig-4(data-dialog-id='dialog-4')
+      div.dialog#dialog-1
+        p.message
+          span=__('pig-message-1')
+      div.dialog#dialog-2
+        p.message
+          span=__('pig-message-2')
+          br
+          span=__('pig-message-gift')
+          br
+          a(href='https://www.youtube.com/watch?v=a7hHWGLDz5k', target='__blank')=__('story')
+      div.dialog#dialog-3
+        p.message
+          span=__('pig-message-3')
+      div.dialog#dialog-4
+        p.message
+          span=__('pig-message-4')
     div.container
       div.page-header
         h1.center=__('john-and-margaret')

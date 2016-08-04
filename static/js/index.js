@@ -77,68 +77,55 @@
             pig.style.left = platformBox.right - pigBox.width - xOffset + window.pageXOffset;
         };
 
-        var removeAllDialogs = function() {
-            var pigs = document.getElementsByClassName('pig');
-            var dialogs = document.getElementsByClassName('dialog');
-
-            for (var i = 0; i < pigs.length; ++i) {
-                var pig = pigs[i];
-                pig.setAttribute('data-dialog', 'off');
-            }
-
-            for (var i = 0; i < dialogs.length; ++i) {
-                var dialog = dialogs[i];
-                dialog.parentNode.removeChild(dialog);
-            }
-        };
-
-        var updatePigs = function() {
-            placePig('pig-1', 'real-name-input', 20);
-            placePig('pig-2', 'address-input', 30);
-            placePig('pig-3', 'address-input', 130);
-            placePig('pig-4', 'say-something-input', 50);
-            removeAllDialogs();
-        };
-
-        window.addEventListener('resize', updatePigs);
-        updatePigs();
-    };
-
-    var listenPigsClick = function() {
-        var makeDialogId = function(pig) {
-            return 'dialog-' + pig.getAttribute('id');
-        };
-
-        var addDialog = function(pig) {
-            var graphics = document.getElementById('graphics');
-            var dialog = document.createElement('div');
-
-            dialog.setAttribute('id', makeDialogId(pig));
-            dialog.classList.add('dialog');
-
-            graphics.appendChild(dialog);
+        var placeDialog = function(pigId, horizontal, vertical) {
+            var pig = document.getElementById(pigId);
+            var dialogId = pig.getAttribute('data-dialog-id');
+            var dialog = document.getElementById(dialogId);
 
             var pigBox = pig.getBoundingClientRect();
             var dialogBox = dialog.getBoundingClientRect();
 
-            dialog.style.top = pigBox.top - dialogBox.height + window.pageYOffset;
-            dialog.style.left = pigBox.left - dialogBox.width + window.pageXOffset;
+            if (horizontal == 'left') {
+                dialog.style.left = pigBox.left - dialogBox.width + window.pageXOffset;
+            } else if (horizontal == 'right') {
+                dialog.style.left = pigBox.right + window.pageXOffset;
+            }
+
+            if (vertical == 'up') {
+                dialog.style.top = pigBox.top - dialogBox.height + window.pageYOffset;
+            } else if (vertical == 'down') {
+                dialog.style.top = pigBox.bottom + window.pageYOffset;
+            }
         };
 
-        var removeDialog = function(pig) {
-            var dialog = document.getElementById(makeDialogId(pig));
-            dialog.parentNode.removeChild(dialog);
+        var updateGraphics = function() {
+            placePig('pig-1', 'real-name-input', 20);
+            placePig('pig-2', 'address-input', 30);
+            placePig('pig-3', 'address-input', 130);
+            placePig('pig-4', 'say-something-input', 50);
+
+            placeDialog('pig-1', 'left', 'down');
+            placeDialog('pig-2', 'left', 'down');
+            placeDialog('pig-3', 'right', 'up');
+            placeDialog('pig-4', 'left', 'up');
         };
 
+        window.addEventListener('resize', updateGraphics);
+        updateGraphics();
+    };
+
+    var listenPigsClick = function() {
         var listenPig = function(pigId) {
             var pig = document.getElementById(pigId);
+            var dialogId = pig.getAttribute('data-dialog-id');
+            var dialog = document.getElementById(dialogId);
+
             pig.addEventListener('click', function() {
-                if (pig.getAttribute('data-dialog') == 'off') {
-                    pig.setAttribute('data-dialog', 'on');
-                    addDialog(pig);
-                } else if (pig.getAttribute('data-dialog') == 'on') {
-                    pig.setAttribute('data-dialog', 'off');
-                    removeDialog(pig);
+                console.log(dialog.style.opacity);
+                if (dialog.style.opacity == 100) {
+                    dialog.style.opacity = 0;
+                } else if (dialog.style.opacity == 0) {
+                    dialog.style.opacity = 100;
                 }
             });
         }

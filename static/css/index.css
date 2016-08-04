@@ -28,8 +28,9 @@
     height: 50px;
 }
 
-.graphics {
+#graphics {
     position: relative;
+    z-index: 5566;
 }
 
 .pig {
@@ -70,6 +71,38 @@
     height: 70px;
     width: 130px;
     background: blue;
+    opacity: 0;
+}
+
+#dialog-1 {
+    height: 60px;
+    width: 180px;
+    background: url(../images/dialog-1.svg);
+}
+
+#dialog-2 {
+    height: 105px;
+    width: 180px;
+    background: url(../images/dialog-2.svg);
+}
+
+#dialog-3 {
+    height: 60px;
+    width: 138px;
+    background: url(../images/dialog-3.svg);
+}
+
+#dialog-4 {
+    height: 60px;
+    width: 180px;
+    background: url(../images/dialog-4.svg);
+}
+
+.message {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
 
 @keyframes pig-waiting-1-keyframes {
