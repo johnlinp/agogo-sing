@@ -121,8 +121,8 @@
             var pigBox = pig.getBoundingClientRect();
             var dialogBox = dialog.getBoundingClientRect();
 
-            dialog.style.top = pigBox.top - dialogBox.height;
-            dialog.style.left = pigBox.left - dialogBox.width;
+            dialog.style.top = pigBox.top - dialogBox.height + window.pageYOffset;
+            dialog.style.left = pigBox.left - dialogBox.width + window.pageXOffset;
         };
 
         var removeDialog = function(pig) {
