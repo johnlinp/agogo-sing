@@ -1,6 +1,6 @@
 {
 	"john-and-margaret": "自均 & 芸璞",
-	"wedding-ceremony": "我們要辦婚禮了，要不要來玩？",
+	"wedding-ceremony": "我們要辦婚禮了",
 	"date-label": "日期",
 	"date-value": " 2016/09/09",
 	"time-label": "時間",
@@ -10,9 +10,9 @@
 	"address-label": "地址",
 	"address-value": " 台北市敦化南路二段201號",
 	"real-name-label": "真實姓名",
-	"participate-label": "來嗎",
-	"attend": "來",
-	"cannot-attend": "不來",
+	"participate-label": "出席嗎",
+	"attend": "出席",
+	"cannot-attend": "不出席",
 	"invitation-label": "喜帖",
 	"postal": "紙本",
 	"email": "Email",
@@ -32,5 +32,6 @@
 	"pig-message-3": "不是我!",
 	"pig-message-4": "不是我!",
 	"pig-message-gift": "給你小禮物!",
-	"story": "故事第一篇"
+	"story": "故事第一篇",
+	"fill-out-before": "請在 8/9 前填完!"
 }
