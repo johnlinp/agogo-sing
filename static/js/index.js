@@ -165,10 +165,11 @@
             var dialog = document.getElementById(dialogId);
 
             pig.addEventListener('click', function() {
-                if (dialog.style.opacity == 100) {
-                    dialog.style.opacity = 0;
-                } else if (dialog.style.opacity == 0) {
-                    dialog.style.opacity = 100;
+                var style = window.getComputedStyle(dialog)
+                if (style.visibility == 'visible') {
+                    dialog.style.visibility = 'hidden';
+                } else if (style.visibility == 'hidden') {
+                    dialog.style.visibility = 'visible';
                 }
             });
         }

@@ -71,7 +71,7 @@
     height: 70px;
     width: 130px;
     background: blue;
-    opacity: 0;
+    visibility: hidden;
 }
 
 #dialog-1 {
