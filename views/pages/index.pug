@@ -86,11 +86,11 @@ html
             input.form-control#address-input(type='email', name='invitationAddr')
           div.question-item
             label=__('phone-number-label')
-            span.required  *
+            span.required.attend-required  *
             input.form-control#phone-input(type='tel', name='phone')
           div.question-item
             label=__('vegan-label')
-            span.required  *
+            span.required.attend-required  *
             div.radio
               label
                 input(type='radio', name='isVegan', value='false', checked='true')

@@ -1,24 +1,57 @@
 (function() {
+    var iterateRadios = function(radios, func) {
+        for (var i = 0; i < radios.length; ++i) {
+            var result = func(radios[i]);
+            if (result) {
+                return result;
+            }
+        }
+    };
+
+    var getRadioValue = function(radios) {
+        return iterateRadios(radios, function(radio) {
+            if (radio.checked) {
+                return radio.value;
+            }
+        });
+    };
+
+    var listenAttend = function() {
+        var attendRadios = document.getElementsByName('canAttend');
+
+        var updateRequired = function() {
+            var canAttend = getRadioValue(attendRadios);
+
+            var setAttendRequiredOpacity = function(opacity) {
+                var requireds = document.getElementsByClassName('attend-required');
+
+                for (var i = 0; i < requireds.length; ++i) {
+                    var required = requireds[i];
+                    required.style.opacity = opacity;
+                }
+            };
+
+            if (canAttend == 'yes') {
+                setAttendRequiredOpacity(100);
+            } else if (canAttend == 'no') {
+                setAttendRequiredOpacity(0);
+            }
+        };
+
+        iterateRadios(attendRadios, function(radio) {
+            radio.addEventListener('click', updateRequired);
+        });
+
+        updateRequired();
+    };
+
     var listenMailMethod = function() {
         var methodRadios = document.getElementsByName('invitationMethod');
         var addrLabel = document.getElementById('address-label');
         var addrInput = document.getElementById('address-input');
 
-        var iterateRadios = function(radios, func) {
-            for (var i = 0; i < radios.length; ++i) {
-                var result = func(radios[i]);
-                if (result) {
-                    return result;
-                }
-            }
-        };
-
         var updateLabel = function() {
-            var mailMethod = iterateRadios(methodRadios, function(radio) {
-                if (radio.checked) {
-                    return radio.value;
-                }
-            });
+            var mailMethod = getRadioValue(methodRadios);
 
             if (mailMethod == 'email') {
                 addrLabel.innerHTML = addrLabel.getAttribute('data-email');
@@ -38,16 +71,27 @@
 
     var listenSubmit = function() {
         var getBlankField = function() {
+            var attendRadios = document.getElementsByName('canAttend');
+
             var fields = [
-                document.getElementById('real-name-input'),
-                document.getElementById('address-input'),
-                document.getElementById('phone-input'),
+                {
+                    input: document.getElementById('real-name-input'),
+                    enabled: true,
+                },
+                {
+                    input: document.getElementById('address-input'),
+                    enabled: true,
+                },
+                {
+                    input: document.getElementById('phone-input'),
+                    enabled: getRadioValue(attendRadios) == 'yes',
+                },
             ];
 
             for (var i = 0; i < fields.length; ++i) {
                 var field = fields[i];
-                if (field.value.trim() == '') {
-                    return field.name;
+                if (field.enabled && field.input.value.trim() == '') {
+                    return field.input.name;
                 }
             }
         };
@@ -121,7 +165,6 @@
             var dialog = document.getElementById(dialogId);
 
             pig.addEventListener('click', function() {
-                console.log(dialog.style.opacity);
                 if (dialog.style.opacity == 100) {
                     dialog.style.opacity = 0;
                 } else if (dialog.style.opacity == 0) {
@@ -136,6 +179,7 @@
         listenPig('pig-4');
     };
 
+    listenAttend();
     listenMailMethod();
     listenSubmit();
     listenPageResize();
